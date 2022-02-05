@@ -1,3 +1,16 @@
+/*
+colors: 
+
+orange-dark: #ff5003
+orange-middle: #fd7702
+orange-light: #ff8e00
+blue-dark: #002347
+blue-middle: #003366
+blue-light: #003f7d
+*/
+
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,17 +18,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(-0.25turn, #ff5003, #ff8e00);
   width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
 }
-
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
 
 #root {
   display: flex;
@@ -25,10 +35,20 @@ body {
 }
 
 .App {
-  border: 1px solid black;
-  width: 50%;
+  background: #003f7d;
+  height: 500px;
+  width: 400px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.Header {
+  color: white;
+}
+
+.Footer {
+  color: white;
 }
