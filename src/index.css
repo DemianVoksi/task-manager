@@ -36,14 +36,14 @@ body {
   background: #003f7d;
   box-shadow: 0.25px 0.25px 0.25px 0.25px #000000;
   height: 500px;
-  width: 400px;
+  width: 350px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.Header {
+.HeaderModal {
   color: white;
   font-family: 'Montserrat', sans-serif;  
   font-weight: 200;
@@ -98,7 +98,4 @@ body {
   font-size: 30px;
 }
 
-.Modal {
-  margin-top: 50px;
-}
 

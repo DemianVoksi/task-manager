@@ -1,28 +1,26 @@
 import { useState } from "react";
-import Modal from "./Modal";
 
-const Header = () => {
+
+const HeaderModal = () => {
 
   const [modal, setModal] = useState(false);
 
-  const showModal = () => {
+  let toggleModal = () => {
     setModal(!modal);
   }
 
   return ( 
-    <div className='Header'>
+    <div className='HeaderModal'>
       <button 
       className="btn" 
       id="add-task" 
       title="Add task"
-      onClick={showModal}>+</button>
-
-      <Modal modal={modal} setModal={setModal} />
+      onClick={toggleModal}
+      >+</button>
     </div>
    );
-}
- 
-export default Header;
+  }
+export default HeaderModal;
 
 /*
 <button classname="btn" id="delete-task" title="Delete task"></button>
