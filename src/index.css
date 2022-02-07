@@ -5,8 +5,8 @@
 --blue-dark: #002347;
 --blue-middle: #003366;
 --blue-light: #003f7d;
---red: #ed2938;
---green: #006b3e;
+--red: #800000;
+--green: #0f3923;
 --white: #ffffff;
 --black: #000000;
 --modal-background: rgba(50,50,50,0.9);
@@ -67,9 +67,47 @@ body {
 }
 
 .MainBody {
-  height: 300px;
+  margin-top: 5px;
+  height: 500px;
+  width: 100%;
   overflow-y: auto;
-  scrollbar-width: none;
+  scrollbar-width: none; /* only firefox */
+  display: flex;
+  flex-direction: column;
+}
+
+.task-container {
+  height: 500px;
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-width: none; /* only firefox */
+  display: flex;
+  flex-direction: column;
+}
+
+.task {
+  margin: 2px 4px;
+  background: rgba(180, 180, 180, 0.192);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(43, 43, 43, 0.568);
+  display: flex;
+  flex-direction: row;
+}
+
+.task-data {
+  font-family: 'Montserrat', sans-serif;  
+  font-weight: 500;
+  color: var(--white);
+  width: 75%;
+  margin: 0 0 0 5px;
+}
+
+.task-buttons {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #delete-task {
@@ -79,6 +117,7 @@ body {
   height: 20px;
   width: 20px;
   margin-top: 10px;
+  margin: 1px;
 }
 
 #task-done {
@@ -88,15 +127,18 @@ body {
   height: 20px;
   width: 20px;
   margin-top: 10px;
+  margin: 1px;
 }
 
 #edit-task {
   background-color: var(--blue-light);
-  border: 3px solid var(--orange-dark);
+  border: none;
   border-radius: 50px;
   height: 20px;
   width: 20px;
   margin-top: 10px;
+  margin: 1px;
+
 }
 
 .Footer {

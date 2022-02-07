@@ -9,9 +9,9 @@ const Task = ({tasks}) => {
             <p>{task.taskDone}</p>
           </div>
           <div className="task-buttons">
-            <button className="btn" id="edit-task" title="Edit task"></button>
-            <button className="btn" id="task-done" title="Task done"></button>
-            <button className="btn" id="delete-task" title="Delete task"></button>
+            <button className="btn" id="edit-task" title="Edit"></button>
+            <button className="btn" id="task-done" title="Done"></button>
+            <button className="btn" id="delete-task" title="Delete"></button>
           </div>
         </div>        
       ))}

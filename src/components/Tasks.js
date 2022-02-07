@@ -13,7 +13,8 @@ const Tasks = () => {
     .then((data) => {
       setTasks(data);
     })
-  })
+  }, [])
+
   return ( 
     <div className="MainBody">
       { tasks && <Task tasks={tasks} />}
