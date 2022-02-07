@@ -36,7 +36,8 @@ body {
 .App {
   background: var(--blue-light);
   box-shadow: 0.25px 0.25px 0.25px 0.25px var(--black);
-  height: 500px;
+  min-height: 600px;
+  height: 100%;
   width: 350px;
   border-radius: 15px;
   display: flex;
@@ -63,6 +64,12 @@ body {
   margin-bottom: 15px;
   font-size: 30px;
   font-weight: bold;
+}
+
+.MainBody {
+  height: 300px;
+  overflow-y: auto;
+  scrollbar-width: none;
 }
 
 #delete-task {

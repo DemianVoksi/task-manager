@@ -16,6 +16,7 @@ const HeaderModal = () => {
     setModal(!modal);
   }
 
+  // submit function
   let handleSubmit = (e) => {
     toggleModal()
     e.preventDefault();
@@ -84,9 +85,3 @@ const HeaderModal = () => {
    );
   }
 export default HeaderModal;
-
-/*
-<button classname="btn" id="delete-task" title="Delete task"></button>
-<button className="btn" id="task-done" title="Task done"></button>
-<button className="btn" id="edit-task" title="Edit task"></button>
-*/
