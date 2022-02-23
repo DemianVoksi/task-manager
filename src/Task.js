@@ -1,4 +1,4 @@
-const Task = ({tasks}) => {
+const Task = () => {
   return ( 
     <div className="task-container">
       {tasks.map(task => (

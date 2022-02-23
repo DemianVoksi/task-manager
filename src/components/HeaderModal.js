@@ -3,35 +3,6 @@ import { useEffect, useState } from "react";
 
 const HeaderModal = () => {
 
-  // modal state
-  const [modal, setModal] = useState(false);
-
-  // form states
-  const [taskName, setTaskName] = useState('');
-  const [taskTime, setTaskTime] = useState('');
-  const [taskDone, setTaskDone] = useState(false);
-
-  // modal toggle function
-  let toggleModal = () => {
-    setModal(!modal);
-  }
-
-  // submit function
-  let handleSubmit = (e) => {
-    toggleModal()
-    e.preventDefault();
-
-    const tasks = { taskName, taskTime, taskDone };
-
-    fetch('http://localhost:8000/tasks', {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(tasks)
-    }).then(() => {
-      console.log("new task added");
-      console.log(tasks);
-    })
-  }
 
   return ( 
     <div className='HeaderModal'>
