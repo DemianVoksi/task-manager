@@ -8,8 +8,7 @@ function ListTasks(props) {
     <div>
       {allTasks.map((task) => (
         <div key={task.id}>
-          <p>{task.taskName}</p>
-          <p>{task.taskTime}</p>
+          <p>{task.taskName} {task.taskTime} {task.done ? "done" : "not done"}</p>
         </div>
       ))}
     </div>
