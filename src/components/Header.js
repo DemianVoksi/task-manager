@@ -2,8 +2,8 @@ import React from 'react'
 
 function Header() {
   return (
-    <div>
-      <h1>Oops, I Almost forgot</h1>
+    <div className='Header-container'>
+      <h1 className='Header'>Oops, I almost forgot</h1>
     </div>
   )
 }

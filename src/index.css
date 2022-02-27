@@ -1,4 +1,5 @@
 :root {
+  --background-white: #f8f8f8;
 }
 
 
@@ -7,21 +8,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital@1&display=swap'); /*Cormorant*/
 @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap'); /*Limelight*/
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap'); /*Abril Fatface*/
+
+
 body {
   margin: 0;
   width: 100%;
+  background-color: var(--background-white);
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-content: center;
+  /* justify-content: center; */
+  /* align-content: center; */
 }
 
-
 .App {
+  border: 1px solid red;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.Header-container {
+  border: 1px solid blue;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.Header {
+  font-family: 'Limelight', cursive;
+  font-size: 50px;
+  color: #00264d;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-bottom: 3px solid #00264d;
+}
