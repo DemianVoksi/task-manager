@@ -25,7 +25,8 @@ function MainForm() {
     const submitting = await fetch('http://localhost:8000/tasks', parameters);
     const data = await submitting.json()
     setAllTasks([...allTasks, data])
-
+    setTask('')
+    setTime('')
   }
 
   const pullFromServer = async() => {
@@ -49,11 +50,14 @@ function MainForm() {
 
   return (
     <div className='form-wrapper'>
-      <form className='form' onSubmit={submitToServer}>
+      <form 
+      className='form' 
+      name='form' 
+      onSubmit={submitToServer}>
         <div className='enter-task-div'>
-          <label
+          {/* <label
           className='enter-task-label'
-          htmlFor='enterTask'>Enter task: </label>
+          htmlFor='enterTask'>Enter task: </label> */}
           <input
           type='text'
           className='enter-task-input'
@@ -64,9 +68,9 @@ function MainForm() {
           required />
         </div>
         <div className='enter-time-div'>
-          <label
+          {/* <label
           className='enter-time-label'
-          htmlFor='enterTime'>Enter time: </label>
+          htmlFor='enterTime'>Enter time: </label> */}
           <input
           type='text'
           className='enter-time-input' 
@@ -76,7 +80,7 @@ function MainForm() {
           onChange={(e) => {setTime(e.target.value)}}
           required />
         </div>
-        <div >
+        <div className='btn-div'>
           <button type='submit'>Submit task</button>
         </div>
       </form>
