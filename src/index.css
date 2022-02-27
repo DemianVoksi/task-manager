@@ -1,15 +1,11 @@
 :root {
   --background-white: #f8f8f8;
+  --foreground-blue: #00264d;
 }
 
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500&display=swap'); /*Montserrat*/
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap'); /*Playfair Display*/
-@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital@1&display=swap'); /*Cormorant*/
-@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap'); /*Limelight*/
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap'); /*Abril Fatface*/
-
-
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
 body {
   margin: 0;
   width: 100%;
@@ -38,17 +34,15 @@ body {
 .Header {
   font-family: 'Limelight', cursive;
   font-size: 50px;
-  color: #00264d;
+  color: var(--foreground-blue);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  border-bottom: 3px solid #00264d;
+  border-bottom: 3px solid var(--foreground-blue);
 }
 
 .form-wrapper {
-  border: 1px solid red;
   width: 100%;
-
 }
 
 .form {
@@ -61,4 +55,26 @@ body {
 .enter-time-div,
 .btn-div {
   margin: 10px;
+
+}
+
+.enter-time-input,
+.enter-task-input,
+.btn-div {
+  height: 21px;
+}
+
+.enter-time-input,
+.enter-task-input {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.btn {
+  background-color: var(--foreground-blue);
+  color: var(--background-white);
+  border: none;
+  padding: 5px 12px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }

@@ -81,7 +81,9 @@ function MainForm() {
           required />
         </div>
         <div className='btn-div'>
-          <button type='submit'>Submit task</button>
+          <button 
+          type='submit'
+          className='btn'>Remind me</button>
         </div>
       </form>
       {allTasks && <ListTasks allTasks={allTasks} />}
