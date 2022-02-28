@@ -5,10 +5,12 @@ function ListTasks(props) {
   let allTasks = props.allTasks;
   
   return (
-    <div>
+    <div className='tasks-container'>
       {allTasks.map((task) => (
-        <div key={task.id}>
-          <p>{task.taskName} {task.taskTime} {task.done ? "done" : "not done"}</p>
+        <div key={task.id} className='task-div'>
+          <p className='para'>{task.taskName}</p>
+          <p className='para'>{task.taskTime}</p>
+          <p className='para'>{task.done ? "done" : "not done"}</p>
         </div>
       ))}
     </div>
