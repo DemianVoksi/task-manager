@@ -47,6 +47,9 @@ function MainForm() {
     fromServer()
   }, [])
 
+  const toggleDone = () => {
+    alert("done")
+  }
 
   return (
     <div className='form-wrapper'>
@@ -86,7 +89,7 @@ function MainForm() {
           className='btn'>Remind me</button>
         </div>
       </form>
-      {allTasks && <ListTasks allTasks={allTasks} />}
+      {allTasks && <ListTasks allTasks={allTasks} toggleDone={toggleDone} />}
     </div>
   )
 }
