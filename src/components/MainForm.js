@@ -47,8 +47,20 @@ function MainForm() {
     fromServer()
   }, [])
 
-  const toggleDone = () => {
-    alert("done")
+  const toggleDone = async(id) => {
+    const resolve = await fetch(`http://localhost:8000/tasks/${id}`)
+    
+    
+  }
+
+  const onDelete = async(id) => {
+    const resolve = await fetch(`http://localhost:8000/tasks/${id}`, {
+      method: 'DELETE'
+    })
+
+    resolve.status === 200 
+    ? setAllTasks(allTasks.filter((task) => task.id !== id))
+    : alert("Error")
   }
 
   return (
@@ -89,7 +101,10 @@ function MainForm() {
           className='btn'>Remind me</button>
         </div>
       </form>
-      {allTasks && <ListTasks allTasks={allTasks} toggleDone={toggleDone} />}
+      {allTasks && <ListTasks 
+      allTasks={allTasks} 
+      toggleDone={toggleDone}
+      onDelete={onDelete} />}
     </div>
   )
 }
