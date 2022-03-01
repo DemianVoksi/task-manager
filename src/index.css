@@ -93,12 +93,32 @@ body {
   margin: 10px 20px 10px 20px;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 14px;
   background-color: rgba(0, 38, 77, 0.5);
-  border-radius: 15px;
+  border-radius: 5px;
   box-shadow: inset 0 0 0 3000px rgba(255, 255, 255, 0.4);
 }
 
 .para {
   margin: 15px 0 0 5px;
+}
+
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--foreground-blue);
+}
+
+.footer-para {
+  margin: 10px 0 10px 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #ffffff;
 }
