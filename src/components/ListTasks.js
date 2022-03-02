@@ -12,7 +12,6 @@ function ListTasks({ allTasks, toggleDone, onDelete }) {
           <div className='text-info'>
             <p className='para'>{task.taskName}</p>
             <p className='para'>{task.taskTime}</p>
-            <p className='para'>{task.taskDone ? "done" : "not done"}</p>
           </div>
           <div className='buttons'>
             <button 

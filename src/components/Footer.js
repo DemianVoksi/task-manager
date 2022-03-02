@@ -5,7 +5,7 @@ function Footer() {
   let footerText = "Created by Demian Vokši, 2022"
   
   return (
-    <div className='footer-container'>
+    <div className='Footer-container'>
       <p className='footer-para'>{footerText}</p>
     </div>
   )

@@ -84,7 +84,7 @@ function MainForm() {
   }
 
   return (
-    <div className='form-wrapper'>
+    <div className='Form-wrapper'>
       <form 
       className='form' 
       name='form' 

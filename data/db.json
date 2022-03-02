@@ -1,22 +1,10 @@
 {
   "tasks": [
     {
-      "taskName": "Do laundry",
-      "taskTime": "Today",
-      "taskDone": false,
+      "taskName": "Pošalji ovo u Metacrticu",
+      "taskTime": "odmah",
+      "taskDone": true,
       "id": 1
-    },
-    {
-      "taskName": "task",
-      "taskTime": "done",
-      "taskDone": false,
-      "id": 2
-    },
-    {
-      "taskName": "lalala",
-      "taskTime": "lalala",
-      "taskDone": false,
-      "id": 3
     }
   ]
 }
