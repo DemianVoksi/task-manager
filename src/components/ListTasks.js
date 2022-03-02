@@ -12,12 +12,13 @@ function ListTasks({ allTasks, toggleDone, onDelete }) {
           <div className='text-info'>
             <p className='para'>{task.taskName}</p>
             <p className='para'>{task.taskTime}</p>
-            {/* <p className='para'>{task.done ? "done" : "not done"}</p> */}
+            <p className='para'>{task.taskDone ? "done" : "not done"}</p>
           </div>
           <div className='buttons'>
             <button 
             className='done-button' 
-            onClick={toggleDone}>done</button>
+            onClick={() => toggleDone(task.id)}
+            style={task.taskDone ? {backgroundColor: '#028a0f'} : {backgroundColor: '#00264d' }}>done</button>
             <button
             className='delete-button'
             onClick={() => onDelete(task.id)}>delete</button>

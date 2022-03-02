@@ -29,7 +29,7 @@ function MainForm() {
     setTime('')
   }
 
-  const pullFromServer = async() => {
+  const fetchTasks = async() => {
     
     let tasksFromServer = await fetch('http://localhost:8000/tasks');
     let data = await tasksFromServer.json()
@@ -40,7 +40,7 @@ function MainForm() {
 
   useEffect(() => {
     const fromServer = async () => {
-      const tasksFromServer = await pullFromServer()
+      const tasksFromServer = await fetchTasks()
       setAllTasks(tasksFromServer)
     }
 
@@ -48,9 +48,29 @@ function MainForm() {
   }, [])
 
   const toggleDone = async(id) => {
+    const toChange = await fetchTask(id);
+    const updated = {...toChange, taskDone: !toChange.taskDone}
+
+    const resolve = await fetch(`http://localhost:8000/tasks/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify(updated)
+    });
+
+    let data = await resolve.json()
     
-    
-    
+    setAllTasks(
+      allTasks.map((item) => (
+        item.id === id ? {...item, taskDone: data.taskDone} : item
+      ))
+    )
+
+  }
+
+  const fetchTask = async(id) => {
+    const response = await fetch(`http://localhost:8000/tasks/${id}`);
+    const data = await response.json();
+    return data;
   }
 
   const onDelete = async(id) => {
