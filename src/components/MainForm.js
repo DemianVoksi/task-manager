@@ -9,12 +9,24 @@ function MainForm() {
   const [allTasks, setAllTasks] = useState([]);
 
 
-  async function submitToServer(e) {
-    
+  const fetchTask = async(id) => {
+    const taskFromServer = await fetch(`http://localhost:8000/tasks/${id}`);
+    const data = await taskFromServer.json();
+    return data;
+  }
+
+
+  const fetchTasks = async() => {    
+    let tasksFromServer = await fetch('http://localhost:8000/tasks');
+    let data = await tasksFromServer.json();
+    return data;
+  }
+
+
+  async function submitToServer(e) {    
     e.preventDefault()
 
     let taskToSubmit = { taskName, taskTime, taskDone };
-
     let parameters = {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -29,14 +41,6 @@ function MainForm() {
     setTime('')
   }
 
-  const fetchTasks = async() => {
-    
-    let tasksFromServer = await fetch('http://localhost:8000/tasks');
-    let data = await tasksFromServer.json()
-
-    return data;
-  }
-
 
   useEffect(() => {
     const fromServer = async () => {
@@ -46,6 +50,7 @@ function MainForm() {
 
     fromServer()
   }, [])
+
 
   const toggleDone = async(id) => {
     const toChange = await fetchTask(id);
@@ -64,14 +69,8 @@ function MainForm() {
         item.id === id ? {...item, taskDone: data.taskDone} : item
       ))
     )
-
   }
 
-  const fetchTask = async(id) => {
-    const response = await fetch(`http://localhost:8000/tasks/${id}`);
-    const data = await response.json();
-    return data;
-  }
 
   const onDelete = async(id) => {
     const resolve = await fetch(`http://localhost:8000/tasks/${id}`, {
@@ -83,6 +82,7 @@ function MainForm() {
     : alert("Error")
   }
 
+
   return (
     <div className='Form-wrapper'>
       <form 
@@ -90,9 +90,6 @@ function MainForm() {
       name='form' 
       onSubmit={submitToServer}>
         <div className='enter-task-div'>
-          {/* <label
-          className='enter-task-label'
-          htmlFor='enterTask'>Enter task: </label> */}
           <input
           type='text'
           className='enter-task-input'
@@ -103,9 +100,6 @@ function MainForm() {
           required />
         </div>
         <div className='enter-time-div'>
-          {/* <label
-          className='enter-time-label'
-          htmlFor='enterTime'>Enter time: </label> */}
           <input
           type='text'
           className='enter-time-input' 
