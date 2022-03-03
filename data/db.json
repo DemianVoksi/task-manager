@@ -1,8 +1,8 @@
 {
   "tasks": [
     {
-      "taskName": "Javi Anji da si kupio kartu",
-      "taskTime": "sada",
+      "taskName": "Deploy React app",
+      "taskTime": "now",
       "taskDone": true,
       "id": 1
     }

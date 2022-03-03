@@ -1,1 +1,2 @@
-Task manager app made in React. 
+Task manager web-app made in React. 
+
