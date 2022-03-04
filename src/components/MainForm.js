@@ -3,9 +3,9 @@ import ListTasks from './ListTasks';
 
 function MainForm() {
 
-  const [taskName, setTask] = useState('');
-  const [taskTime, setTime] = useState('');
-  const [taskDone, setDone] = useState(false);
+  const [taskName, setTaskName] = useState('');
+  const [taskTime, setTaskTime] = useState('');
+  const [taskDone, setTaskDone] = useState(false);
   const [allTasks, setAllTasks] = useState([]);
 
 
@@ -37,8 +37,8 @@ function MainForm() {
     const submitting = await fetch('http://localhost:8000/tasks', parameters);
     const data = await submitting.json()
     setAllTasks([...allTasks, data])
-    setTask('')
-    setTime('')
+    setTaskName('')
+    setTaskTime('')
   }
 
 
@@ -96,7 +96,7 @@ function MainForm() {
           name='enterTask'
           value={taskName}
           placeholder='Enter task'
-          onChange={(e) => {setTask(e.target.value)}}
+          onChange={(e) => {setTaskName(e.target.value)}}
           required />
         </div>
         <div className='enter-time-div'>
@@ -106,7 +106,7 @@ function MainForm() {
           name='enterTime'
           placeholder='Enter time'
           value={taskTime}
-          onChange={(e) => {setTime(e.target.value)}}
+          onChange={(e) => {setTaskTime(e.target.value)}}
           required />
         </div>
         <div className='btn-div'>
