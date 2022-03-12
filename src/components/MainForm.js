@@ -8,6 +8,7 @@ import {
 	getDocs,
 	getDoc,
 	doc,
+	addDoc,
 } from 'firebase/firestore';
 
 function MainForm() {
@@ -18,7 +19,7 @@ function MainForm() {
 	const tasksCollectionRef = collection(db, 'tasks');
 	const tasksOrdered = query(tasksCollectionRef, orderBy('taskTimestamp'));
 
-	/* ***FETCH ALL TASKS*** */
+	/* ***FETCH ALL TASKS*** CHANGED*/
 
 	// const fetchTasks = async () => {
 	// 	let tasksFromServer = await fetch('http://localhost:8000/tasks');
@@ -31,7 +32,7 @@ function MainForm() {
 		setAllTasks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
 	};
 
-	/* ***FETCH SINGLE TASK*** */
+	/* ***FETCH SINGLE TASK*** CHANGED*/
 
 	// const fetchTask = async (id) => {
 	// 	const taskFromServer = await fetch(`http://localhost:8000/tasks/${id}`);
@@ -45,38 +46,61 @@ function MainForm() {
 		return docSnap;
 	};
 
-	/* ***SUBMIT ALL TASKS*** */
+	/* ***SUBMIT ALL TASKS*** CHANGED*/
 
-	async function submitToServer(e) {
+	// async function submitToServer(e) {
+	// 	e.preventDefault();
+
+	// 	let taskToSubmit = { taskName, taskTime, taskDone };
+	// 	let parameters = {
+	// 		method: 'POST',
+	// 		headers: { 'Content-Type': 'application/json' },
+	// 		mode: 'cors',
+	// 		body: JSON.stringify(taskToSubmit),
+	// 	};
+
+	// 	const submitting = await fetch('http://localhost:8000/tasks', parameters);
+	// 	const data = await submitting.json();
+	// 	setAllTasks([...allTasks, data]);
+	// 	setTaskName('');
+	// 	setTaskTime('');
+	// }
+
+	const submitNewTask = async (e) => {
 		e.preventDefault();
+		getDate();
+		await addDoc(tasksCollectionRef, {
+			taskName: taskName,
+			taskTime: taskTime,
+			taskDone: taskDone,
+		});
+		fetchTasks();
+	};
 
-		let taskToSubmit = { taskName, taskTime, taskDone };
-		let parameters = {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			mode: 'cors',
-			body: JSON.stringify(taskToSubmit),
-		};
+	/* ***GET DATE*** FINISHED*/
 
-		const submitting = await fetch('http://localhost:8000/tasks', parameters);
-		const data = await submitting.json();
-		setAllTasks([...allTasks, data]);
-		setTaskName('');
-		setTaskTime('');
-	}
+	const getDate = () => {
+		const currentTime = Date.now();
+		setTaskTime(currentTime);
+	};
 
-	/* ***USE EFFECT*** */
+	/* ***USE EFFECT*** CHANGED*/
+
+	// useEffect(() => {
+	// 	const fromServer = async () => {
+	// 		const tasksFromServer = await fetchTasks();
+	// 		setAllTasks(tasksFromServer);
+	// 	};
+
+	// 	fromServer();
+	// }, []);
 
 	useEffect(() => {
-		const fromServer = async () => {
-			const tasksFromServer = await fetchTasks();
-			setAllTasks(tasksFromServer);
-		};
+		fetchTasks();
+		console.log(allTasks);
+	});
 
-		fromServer();
-	}, []);
-
-	/* ***TOGGLE DONE*** */
+	/* ***TOGGLE DONE*** NOT CHANGED*/
 
 	const toggleDone = async (id) => {
 		const toChange = await fetchTask(id);
@@ -97,7 +121,7 @@ function MainForm() {
 		);
 	};
 
-	/* ***ON DELETE*** */
+	/* ***ON DELETE*** NOT CHANGED*/
 
 	const onDelete = async (id) => {
 		const resolve = await fetch(`http://localhost:8000/tasks/${id}`, {
@@ -111,7 +135,7 @@ function MainForm() {
 
 	return (
 		<div className='Form-wrapper'>
-			<form className='form' name='form' onSubmit={submitToServer}>
+			<form className='form' name='form' onSubmit={submitNewTask}>
 				<div className='enter-task-div'>
 					<input
 						type='text'
