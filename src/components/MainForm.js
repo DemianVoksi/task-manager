@@ -9,15 +9,18 @@ import {
 	getDoc,
 	doc,
 	addDoc,
+	deleteDoc,
+	updateDoc,
 } from 'firebase/firestore';
 
 function MainForm() {
 	const [taskName, setTaskName] = useState('');
 	const [taskTime, setTaskTime] = useState('');
 	const [taskDone, setTaskDone] = useState(false);
-	const [allTasks, setAllTasks] = useState([]);
+	// const [submitTime, setSubmitTime] = useState(0);
+	const [allTasks, setAllTasks] = useState([]); // YOU COMPLETELY FORGOT THIS
 	const tasksCollectionRef = collection(db, 'tasks');
-	const tasksOrdered = query(tasksCollectionRef, orderBy('taskTimestamp'));
+	const tasksOrdered = query(tasksCollectionRef, orderBy('submitTime'));
 
 	/* ***FETCH ALL TASKS*** CHANGED*/
 
@@ -40,11 +43,11 @@ function MainForm() {
 	// 	return data;
 	// };
 
-	const fetchTask = async (id) => {
-		const docRef = doc(db, 'tasks', id);
-		const docSnap = await getDoc(docRef);
-		return docSnap;
-	};
+	// const fetchTask = async (id) => {
+	// 	const docRef = doc(db, 'tasks', id);
+	// 	const docSnap = await getDoc(docRef);
+	// 	return docSnap;
+	// };
 
 	/* ***SUBMIT ALL TASKS*** CHANGED*/
 
@@ -68,11 +71,11 @@ function MainForm() {
 
 	const submitNewTask = async (e) => {
 		e.preventDefault();
-		getDate();
 		await addDoc(tasksCollectionRef, {
 			taskName: taskName,
 			taskTime: taskTime,
 			taskDone: taskDone,
+			submitTime: getDate(),
 		});
 		fetchTasks();
 	};
@@ -81,7 +84,7 @@ function MainForm() {
 
 	const getDate = () => {
 		const currentTime = Date.now();
-		setTaskTime(currentTime);
+		return currentTime;
 	};
 
 	/* ***USE EFFECT*** CHANGED*/
@@ -98,39 +101,56 @@ function MainForm() {
 	useEffect(() => {
 		fetchTasks();
 		console.log(allTasks);
-	});
+	}, []);
 
-	/* ***TOGGLE DONE*** NOT CHANGED*/
+	/* ***TOGGLE DONE*** */
+
+	// const toggleDone = async (id) => {
+	// 	const toChange = await fetchTask(id);
+	// 	const updated = { ...toChange, taskDone: !toChange.taskDone };
+
+	// 	const resolve = await fetch(`http://localhost:8000/tasks/${id}`, {
+	// 		method: 'PUT',
+	// 		headers: { 'Content-Type': 'application/json' },
+	// 		body: JSON.stringify(updated),
+	// 	});
+
+	// 	let data = await resolve.json();
+
+	// 	setAllTasks(
+	// 		allTasks.map((item) =>
+	// 			item.id === id ? { ...item, taskDone: data.taskDone } : item
+	// 		)
+	// 	);
+	// };
 
 	const toggleDone = async (id) => {
-		const toChange = await fetchTask(id);
-		const updated = { ...toChange, taskDone: !toChange.taskDone };
-
-		const resolve = await fetch(`http://localhost:8000/tasks/${id}`, {
-			method: 'PUT',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify(updated),
-		});
-
-		let data = await resolve.json();
-
-		setAllTasks(
-			allTasks.map((item) =>
-				item.id === id ? { ...item, taskDone: data.taskDone } : item
-			)
-		);
+		// buggy, when clicking on the task for the first time, it needs 2 clicks to change
+		const taskDoc = doc(db, 'tasks', id);
+		const newDone = {
+			taskDone: !taskDone,
+		};
+		setTaskDone(!taskDone);
+		await updateDoc(taskDoc, newDone);
+		fetchTasks();
 	};
 
-	/* ***ON DELETE*** NOT CHANGED*/
+	/* ***ON DELETE*** */
+
+	// const onDelete = async (id) => {
+	// 	const resolve = await fetch(`http://localhost:8000/tasks/${id}`, {
+	// 		method: 'DELETE',
+	// 	});
+
+	// 	resolve.status === 200
+	// 		? setAllTasks(allTasks.filter((task) => task.id !== id))
+	// 		: alert('Error');
+	// };
 
 	const onDelete = async (id) => {
-		const resolve = await fetch(`http://localhost:8000/tasks/${id}`, {
-			method: 'DELETE',
-		});
-
-		resolve.status === 200
-			? setAllTasks(allTasks.filter((task) => task.id !== id))
-			: alert('Error');
+		const taskDoc = doc(db, 'tasks', id);
+		await deleteDoc(taskDoc);
+		fetchTasks();
 	};
 
 	return (
