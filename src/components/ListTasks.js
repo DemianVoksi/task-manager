@@ -12,7 +12,7 @@ function ListTasks({ allTasks, toggleDone, onDelete }) {
 					<div className='buttons'>
 						<button
 							className='done-button'
-							onClick={() => toggleDone(task.id)}
+							onClick={() => toggleDone(task.id, task.taskDone)}
 							style={
 								task.taskDone
 									? { backgroundColor: '#028a0f' }

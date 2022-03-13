@@ -6,7 +6,6 @@ import {
 	query,
 	orderBy,
 	getDocs,
-	getDoc,
 	doc,
 	addDoc,
 	deleteDoc,
@@ -17,57 +16,26 @@ function MainForm() {
 	const [taskName, setTaskName] = useState('');
 	const [taskTime, setTaskTime] = useState('');
 	const [taskDone, setTaskDone] = useState(false);
-	// const [submitTime, setSubmitTime] = useState(0);
-	const [allTasks, setAllTasks] = useState([]); // YOU COMPLETELY FORGOT THIS
+	const [allTasks, setAllTasks] = useState([]);
 	const tasksCollectionRef = collection(db, 'tasks');
 	const tasksOrdered = query(tasksCollectionRef, orderBy('submitTime'));
 
-	/* ***FETCH ALL TASKS*** CHANGED*/
-
-	// const fetchTasks = async () => {
-	// 	let tasksFromServer = await fetch('http://localhost:8000/tasks');
-	// 	let data = await tasksFromServer.json();
-	// 	return data;
-	// };
+	/* ***FETCH ALL TASKS*** */
 
 	const fetchTasks = async () => {
 		const data = await getDocs(tasksOrdered);
 		setAllTasks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+		console.log(allTasks);
 	};
 
-	/* ***FETCH SINGLE TASK*** CHANGED*/
+	/* ***GET DATE*** */
 
-	// const fetchTask = async (id) => {
-	// 	const taskFromServer = await fetch(`http://localhost:8000/tasks/${id}`);
-	// 	const data = await taskFromServer.json();
-	// 	return data;
-	// };
+	const getDate = () => {
+		const currentTime = Date.now();
+		return currentTime;
+	};
 
-	// const fetchTask = async (id) => {
-	// 	const docRef = doc(db, 'tasks', id);
-	// 	const docSnap = await getDoc(docRef);
-	// 	return docSnap;
-	// };
-
-	/* ***SUBMIT ALL TASKS*** CHANGED*/
-
-	// async function submitToServer(e) {
-	// 	e.preventDefault();
-
-	// 	let taskToSubmit = { taskName, taskTime, taskDone };
-	// 	let parameters = {
-	// 		method: 'POST',
-	// 		headers: { 'Content-Type': 'application/json' },
-	// 		mode: 'cors',
-	// 		body: JSON.stringify(taskToSubmit),
-	// 	};
-
-	// 	const submitting = await fetch('http://localhost:8000/tasks', parameters);
-	// 	const data = await submitting.json();
-	// 	setAllTasks([...allTasks, data]);
-	// 	setTaskName('');
-	// 	setTaskTime('');
-	// }
+	/* ***SUBMIT ALL TASKS*** */
 
 	const submitNewTask = async (e) => {
 		e.preventDefault();
@@ -78,25 +46,11 @@ function MainForm() {
 			submitTime: getDate(),
 		});
 		fetchTasks();
+		setTaskName('');
+		setTaskTime('');
 	};
 
-	/* ***GET DATE*** FINISHED*/
-
-	const getDate = () => {
-		const currentTime = Date.now();
-		return currentTime;
-	};
-
-	/* ***USE EFFECT*** CHANGED*/
-
-	// useEffect(() => {
-	// 	const fromServer = async () => {
-	// 		const tasksFromServer = await fetchTasks();
-	// 		setAllTasks(tasksFromServer);
-	// 	};
-
-	// 	fromServer();
-	// }, []);
+	/* ***USE EFFECT*** */
 
 	useEffect(() => {
 		fetchTasks();
@@ -105,47 +59,16 @@ function MainForm() {
 
 	/* ***TOGGLE DONE*** */
 
-	// const toggleDone = async (id) => {
-	// 	const toChange = await fetchTask(id);
-	// 	const updated = { ...toChange, taskDone: !toChange.taskDone };
-
-	// 	const resolve = await fetch(`http://localhost:8000/tasks/${id}`, {
-	// 		method: 'PUT',
-	// 		headers: { 'Content-Type': 'application/json' },
-	// 		body: JSON.stringify(updated),
-	// 	});
-
-	// 	let data = await resolve.json();
-
-	// 	setAllTasks(
-	// 		allTasks.map((item) =>
-	// 			item.id === id ? { ...item, taskDone: data.taskDone } : item
-	// 		)
-	// 	);
-	// };
-
-	const toggleDone = async (id) => {
-		// buggy, when clicking on the task for the first time, it needs 2 clicks to change
+	const toggleDone = async (id, taskDone) => {
 		const taskDoc = doc(db, 'tasks', id);
 		const newDone = {
 			taskDone: !taskDone,
 		};
-		setTaskDone(!taskDone);
 		await updateDoc(taskDoc, newDone);
 		fetchTasks();
 	};
 
 	/* ***ON DELETE*** */
-
-	// const onDelete = async (id) => {
-	// 	const resolve = await fetch(`http://localhost:8000/tasks/${id}`, {
-	// 		method: 'DELETE',
-	// 	});
-
-	// 	resolve.status === 200
-	// 		? setAllTasks(allTasks.filter((task) => task.id !== id))
-	// 		: alert('Error');
-	// };
 
 	const onDelete = async (id) => {
 		const taskDoc = doc(db, 'tasks', id);
