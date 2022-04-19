@@ -2,182 +2,251 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
 
 :root {
-  --background-white: #f8f8f8;
-  --foreground-blue: #00264d;
+	--background-white: #f8f8f8;
+	--foreground-blue: #00264d;
 }
 
 body {
-  margin: 0;
-  width: 100%;
-  background-color: var(--background-white);
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+	margin: 0;
+	width: 100%;
+	background-color: var(--background-white);
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 .App {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
+/* Login page */
+
+.login-page {
+	background-color: var(--background-white);
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.login-forms {
+	margin-top: 40px;
+	display: flex;
+	flex-direction: row;
+}
+
+.login-form-wrapper {
+	margin: 10px 20px 10px 10px;
+}
+
+.login-form-one {
+	padding: 10px;
+}
+
+.form-label-email,
+.form-label-password {
+	margin: 0 10px 0 0;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 15px;
+}
+
+.text {
+	margin: 15px 0 0 0;
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+}
+
+h4 {
+	margin: 5px;
+}
+
+p {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 19px;
+}
+
+.form-button {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 13px;
+	border: none;
+	padding: 5px 8px;
+	color: var(--background-white);
+	background-color: var(--foreground-blue);
+}
+
+.form-email-wrapper,
+.form-password-wrapper {
+	margin: 0 0 5px 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+/* Task manager page */
+
 .Header-container {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 
 .header {
-  font-family: 'Limelight', cursive;
-  font-size: 50px;
-  color: var(--foreground-blue);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  border-bottom: 3px solid var(--foreground-blue);
+	font-family: 'Limelight', cursive;
+	font-size: 50px;
+	color: var(--foreground-blue);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	border-bottom: 3px solid var(--foreground-blue);
 }
 
 .Form-wrapper {
-  width: 100%;
-  padding-bottom: 30px;
+	width: 100%;
+	padding-bottom: 30px;
 }
 
 .form {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 
 .enter-task-div,
 .enter-time-div,
 .btn-div {
-  margin: 10px;
+	margin: 10px;
 }
 
 .enter-time-input,
 .enter-task-input,
 .btn-div {
-  height: 21px;
+	height: 21px;
 }
 
 .enter-time-input,
 .enter-task-input {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
 }
 
 .btn {
-  background-color: var(--foreground-blue);
-  color: var(--background-white);
-  border: none;
-  padding: 5px 12px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+	background-color: var(--foreground-blue);
+	color: var(--background-white);
+	border: none;
+	padding: 5px 12px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
 }
 
 .tasks-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin: 20px 0 0 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin: 20px 0 0 0;
 }
 
 .task-div {
-  height: 120px;
-  width: 300px;
-  margin: 5px 10px 5px 10px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 14px;
-  background-color: rgba(0, 38, 77, 0.5);
-  border-radius: 5px;
-  box-shadow: inset 0 0 0 3000px rgba(255, 255, 255, 0.4);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+	height: 120px;
+	width: 300px;
+	margin: 5px 10px 5px 10px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+	background-color: rgba(0, 38, 77, 0.5);
+	border-radius: 5px;
+	box-shadow: inset 0 0 0 3000px rgba(255, 255, 255, 0.4);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 .text-info {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  max-height: 120px;
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	max-height: 120px;
 }
 
 .para {
-  display: flex;
-  flex-direction: column;
-  margin-left: 15px;
-  max-width: 190px;
-  max-height: 30px;
-  white-space: normal;
-  overflow-y: scroll;
-  scrollbar-width: none;
-  word-wrap: break-word;
+	display: flex;
+	flex-direction: column;
+	margin-left: 15px;
+	max-width: 190px;
+	max-height: 30px;
+	white-space: normal;
+	overflow-y: scroll;
+	scrollbar-width: none;
+	word-wrap: break-word;
 }
 
 ::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 .buttons {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
+	display: flex;
+	flex-direction: column;
+	align-self: center;
 }
 
 .done-button,
 .delete-button {
-  color: var(--background-white);
-  border: none;
-  margin: 10px 20px 10px 0;
-  padding: 5px 12px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+	color: var(--background-white);
+	border: none;
+	margin: 10px 20px 10px 0;
+	padding: 5px 12px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
 }
 
 .delete-button {
-  background-color: var(--foreground-blue);
+	background-color: var(--foreground-blue);
 }
 
 .Footer-container {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 30px;
-  display: flex;
-  margin-top: auto;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--foreground-blue);
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 30px;
+	display: flex;
+	margin-top: auto;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--foreground-blue);
 }
 
 .footer-para {
-  margin: 10px 0 10px 0;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  color: #ffffff;
+	margin: 10px 0 10px 0;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	color: #ffffff;
 }
 
 /* ******MOBILE****** */
 
 @media only screen and (min-width: 300px) and (max-width: 950px) {
-  .header {
-    font-size: 30px;
-  }
+	.header {
+		font-size: 30px;
+	}
 
-  .form {
-    flex-direction: column;
-    align-items: center;
-  }
+	.form {
+		flex-direction: column;
+		align-items: center;
+	}
 
-  .tasks-container {
-    flex-direction: column;
-    align-items: center;
-  }
+	.tasks-container {
+		flex-direction: column;
+		align-items: center;
+	}
 }
