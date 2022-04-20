@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
-
-function Login() {
-	// const [registerEmail, setRegisterEmail] = useState('');
-	// const [registerPassword, setRegisterPassword] = useState('');
-	// const [loginEmail, setLoginEmail] = useState('');
-	// const [loginPassword, setLoginPassword] = useState('');
-	// const [user, setUser] = useState({});
-
+function Login({
+	setRegisterEmail,
+	setRegisterPassword,
+	setLoginEmail,
+	setLoginPassword,
+	register,
+	login,
+	logout,
+	registerEmail,
+	registerPassword,
+	loginEmail,
+	loginPassword,
+	user,
+}) {
 	return (
 		<div className='login-page'>
 			<div className='text'>
@@ -15,7 +20,7 @@ function Login() {
 			</div>
 			<div className='login-forms'>
 				<div className='login-form-wrapper'>
-					<form className='login-form-all'>
+					<form className='login-form-all' onSubmit={register}>
 						<div className='login-form-one'>
 							<p>Register</p>
 							<div className='form-email-wrapper'>
@@ -27,6 +32,8 @@ function Login() {
 									type='email'
 									name='register-email'
 									placeholder='Enter email...'
+									value={registerEmail}
+									onChange={(e) => setRegisterEmail(e.target.value)}
 								/>
 							</div>
 							<div className='form-password-wrapper'>
@@ -41,6 +48,8 @@ function Login() {
 									type='password'
 									name='register-password'
 									placeholder='Enter password...'
+									value={registerPassword}
+									onChange={(e) => setRegisterPassword(e.target.value)}
 								/>
 							</div>
 							<button className='form-button' type='submit'>
@@ -51,7 +60,7 @@ function Login() {
 				</div>
 
 				<div className='login-form-wrapper'>
-					<form className='login-form-all'>
+					<form className='login-form-all' onSubmit={login}>
 						<div className='login-form-one'>
 							<p>Log in</p>
 							<div className='form-email-wrapper'>
@@ -63,6 +72,8 @@ function Login() {
 									type='email'
 									name='login-email'
 									placeholder='Enter email...'
+									value={loginEmail}
+									onChange={(e) => setLoginEmail(e.target.value)}
 								/>
 							</div>
 							<div className='form-password-wrapper'>
@@ -74,14 +85,20 @@ function Login() {
 									type='password'
 									name='login-password'
 									placeholder='Enter password...'
+									value={loginPassword}
+									onChange={(e) => setLoginPassword(e.target.value)}
 								/>
 							</div>
-							<button className='form-button' type='submit'>
-								Log in
-							</button>
+							<button className='form-button'>Log in</button>
 						</div>
 					</form>
 				</div>
+			</div>
+			<button className='form-button' onClick={logout}>
+				Log out
+			</button>
+			<div className='signedin-wrapper'>
+				<h2 className='signedin'>User logged in: {user?.email}</h2>
 			</div>
 		</div>
 	);
