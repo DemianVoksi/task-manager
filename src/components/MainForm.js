@@ -45,6 +45,8 @@ function MainForm() {
 			taskName: taskName,
 			taskTime: taskTime,
 			taskDone: taskDone,
+			taskParticipant: taskParticipant,
+			allParticipants: allParticipants,
 			submitTime: getDate(),
 		});
 		fetchTasks();
@@ -56,7 +58,6 @@ function MainForm() {
 
 	useEffect(() => {
 		fetchTasks();
-		console.log(allTasks);
 	}, []);
 
 	/* ***TOGGLE DONE*** */
@@ -79,11 +80,11 @@ function MainForm() {
 	};
 
 	const addTaskParticipant = async (id, taskParticipant) => {
-		const taskDoc = doc(db, 'tasks', id);
+		const taskRef = doc(db, 'tasks', id);
 		const newParticipants = {
 			allParticipants: [...allParticipants, taskParticipant],
 		};
-		await updateDoc(taskDoc, newParticipants);
+		await updateDoc(taskRef, newParticipants);
 		fetchTasks();
 	};
 
