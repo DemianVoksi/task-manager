@@ -17,6 +17,8 @@ function MainForm() {
 	const [taskTime, setTaskTime] = useState('');
 	const [taskDone, setTaskDone] = useState(false);
 	const [allTasks, setAllTasks] = useState([]);
+	const [taskParticipant, setTaskParticipant] = useState('');
+	const [allParticipants, setAllParticipants] = useState([]);
 	const tasksCollectionRef = collection(db, 'tasks');
 	const tasksOrdered = query(tasksCollectionRef, orderBy('submitTime'));
 
@@ -76,6 +78,15 @@ function MainForm() {
 		fetchTasks();
 	};
 
+	const addTaskParticipant = async (id, taskParticipant) => {
+		const taskDoc = doc(db, 'tasks', id);
+		const newParticipants = {
+			allParticipants: [...allParticipants, taskParticipant],
+		};
+		await updateDoc(taskDoc, newParticipants);
+		fetchTasks();
+	};
+
 	return (
 		<div className='Form-wrapper'>
 			<form className='form' name='form' onSubmit={submitNewTask}>
@@ -116,6 +127,9 @@ function MainForm() {
 					allTasks={allTasks}
 					toggleDone={toggleDone}
 					onDelete={onDelete}
+					taskParticipant={taskParticipant}
+					setTaskParticipant={setTaskParticipant}
+					addTaskParticipant={addTaskParticipant}
 				/>
 			)}
 		</div>

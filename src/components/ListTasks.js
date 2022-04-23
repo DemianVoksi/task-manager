@@ -1,6 +1,15 @@
 import React from 'react';
 
-function ListTasks({ allTasks, toggleDone, onDelete }) {
+// stavi cijeli <div className='participant'> u novi component
+
+function ListTasks({
+	allTasks,
+	toggleDone,
+	onDelete,
+	taskParticipant,
+	setTaskParticipant,
+	addTaskParticipant,
+}) {
 	return (
 		<div className='tasks-container'>
 			{allTasks.map((task) => (
