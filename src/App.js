@@ -27,7 +27,6 @@ function App() {
 
 	const register = async (e) => {
 		e.preventDefault();
-		// console.log('register clicked');
 		try {
 			const user = await createUserWithEmailAndPassword(
 				auth,
@@ -42,7 +41,6 @@ function App() {
 
 	const login = async (e) => {
 		e.preventDefault();
-		// console.log('login clicked');
 		try {
 			const user = await signInWithEmailAndPassword(
 				auth,
@@ -56,7 +54,6 @@ function App() {
 	};
 
 	const logout = async () => {
-		// console.log('logout clicked');
 		await signOut(auth);
 	};
 

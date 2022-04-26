@@ -17,27 +17,18 @@ function MainForm() {
 	const [taskTime, setTaskTime] = useState('');
 	const [taskDone, setTaskDone] = useState(false);
 	const [allTasks, setAllTasks] = useState([]);
-	const [taskParticipant, setTaskParticipant] = useState('');
-	const [allParticipants, setAllParticipants] = useState([]);
 	const tasksCollectionRef = collection(db, 'tasks');
 	const tasksOrdered = query(tasksCollectionRef, orderBy('submitTime'));
-
-	/* ***FETCH ALL TASKS*** */
 
 	const fetchTasks = async () => {
 		const data = await getDocs(tasksOrdered);
 		setAllTasks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-		console.log(allTasks);
 	};
-
-	/* ***GET DATE*** */
 
 	const getDate = () => {
 		const currentTime = Date.now();
 		return currentTime;
 	};
-
-	/* ***SUBMIT ALL TASKS*** */
 
 	const submitNewTask = async (e) => {
 		e.preventDefault();
@@ -45,8 +36,6 @@ function MainForm() {
 			taskName: taskName,
 			taskTime: taskTime,
 			taskDone: taskDone,
-			taskParticipant: taskParticipant,
-			allParticipants: allParticipants,
 			submitTime: getDate(),
 		});
 		fetchTasks();
@@ -54,13 +43,9 @@ function MainForm() {
 		setTaskTime('');
 	};
 
-	/* ***USE EFFECT*** */
-
 	useEffect(() => {
 		fetchTasks();
 	}, []);
-
-	/* ***TOGGLE DONE*** */
 
 	const toggleDone = async (id, taskDone) => {
 		const taskDoc = doc(db, 'tasks', id);
@@ -71,20 +56,9 @@ function MainForm() {
 		fetchTasks();
 	};
 
-	/* ***ON DELETE*** */
-
 	const onDelete = async (id) => {
 		const taskDoc = doc(db, 'tasks', id);
 		await deleteDoc(taskDoc);
-		fetchTasks();
-	};
-
-	const addTaskParticipant = async (id, taskParticipant) => {
-		const taskRef = doc(db, 'tasks', id);
-		const newParticipants = {
-			allParticipants: [...allParticipants, taskParticipant],
-		};
-		await updateDoc(taskRef, newParticipants);
 		fetchTasks();
 	};
 
@@ -128,9 +102,7 @@ function MainForm() {
 					allTasks={allTasks}
 					toggleDone={toggleDone}
 					onDelete={onDelete}
-					taskParticipant={taskParticipant}
-					setTaskParticipant={setTaskParticipant}
-					addTaskParticipant={addTaskParticipant}
+					fetchTasks={fetchTasks}
 				/>
 			)}
 		</div>
