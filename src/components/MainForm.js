@@ -12,7 +12,7 @@ import {
 	updateDoc,
 } from 'firebase/firestore';
 
-function MainForm() {
+function MainForm({ user }) {
 	const [taskName, setTaskName] = useState('');
 	const [taskTime, setTaskTime] = useState('');
 	const [taskDone, setTaskDone] = useState(false);
@@ -33,6 +33,7 @@ function MainForm() {
 	const submitNewTask = async (e) => {
 		e.preventDefault();
 		await addDoc(tasksCollectionRef, {
+			taskAuthor: user.email,
 			taskName: taskName,
 			taskTime: taskTime,
 			taskDone: taskDone,
@@ -103,6 +104,7 @@ function MainForm() {
 					toggleDone={toggleDone}
 					onDelete={onDelete}
 					fetchTasks={fetchTasks}
+					user={user}
 				/>
 			)}
 		</div>

@@ -19,6 +19,8 @@ function App() {
 	const [loginPassword, setLoginPassword] = useState('');
 	const [user, setUser] = useState({});
 
+	// dodati uvjete za rendering taskova autorima taskova
+
 	useEffect(() => {
 		onAuthStateChanged(auth, (currentUser) => {
 			setUser(currentUser);
@@ -62,7 +64,7 @@ function App() {
 			{user?.email ? (
 				<div className='loggedin'>
 					<Header logout={logout} />
-					<MainForm />
+					<MainForm user={user} />
 					<Footer />
 				</div>
 			) : (
