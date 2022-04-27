@@ -4,7 +4,6 @@ import { db } from '../firebase-config';
 
 function Task({ task, fetchTasks, toggleDone, onDelete }) {
 	const [taskParticipant, setTaskParticipant] = useState('');
-	//	const [allParticipants, setAllParticipants] = useState([]);
 
 	const addTaskParticipant = async (e) => {
 		e.preventDefault();

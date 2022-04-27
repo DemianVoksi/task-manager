@@ -1,13 +1,14 @@
 import Task from './Task';
 
 function ListTasks({ fetchTasks, allTasks, toggleDone, onDelete, user }) {
-	// vidjeti radi li filter za taskAuthora
-	// dodati filter za taskParticipanta
-	// vidjeti može li se sve to preko getDoca
 	return (
 		<div className='tasks-container'>
 			{allTasks
-				.filter((task) => task.taskAuthor === user.email)
+				.filter(
+					(task) =>
+						task.taskAuthor === user.email ||
+						task.allParticipants.includes(user.email)
+				)
 				.map((task) => (
 					<div key={task.id}>
 						<Task
