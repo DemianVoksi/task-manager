@@ -71,14 +71,12 @@ function App() {
 					registerPassword={registerPassword}
 					loginEmail={loginEmail}
 					loginPassword={loginPassword}
-					user={user}
 					setRegisterEmail={setRegisterEmail}
 					setRegisterPassword={setRegisterPassword}
 					setLoginEmail={setLoginEmail}
 					setLoginPassword={setLoginPassword}
 					register={register}
 					login={login}
-					logout={logout}
 				/>
 			)}
 		</div>

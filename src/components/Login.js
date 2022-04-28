@@ -5,12 +5,10 @@ function Login({
 	setLoginPassword,
 	register,
 	login,
-	logout,
 	registerEmail,
 	registerPassword,
 	loginEmail,
 	loginPassword,
-	user,
 }) {
 	return (
 		<div className='login-page'>
@@ -93,12 +91,6 @@ function Login({
 						</div>
 					</form>
 				</div>
-			</div>
-			<button className='form-button' onClick={logout}>
-				Log out
-			</button>
-			<div className='signedin-wrapper'>
-				<h2 className='signedin'>User logged in: {user?.email}</h2>
 			</div>
 		</div>
 	);
