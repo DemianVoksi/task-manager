@@ -6,7 +6,7 @@ function Header({ logout }) {
 	return (
 		<div className='Header-container'>
 			<h1 className='header'>{headerText}</h1>
-			<button className='form-button' onClick={logout}>
+			<button className='form-button' id='logout-button' onClick={logout}>
 				Logout
 			</button>
 		</div>
