@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase-config';
+import ShowParticipants from './ShowParticipants';
 
 function Task({ task, fetchTasks, toggleDone, onDelete }) {
 	const [taskParticipant, setTaskParticipant] = useState('');
@@ -36,6 +37,7 @@ function Task({ task, fetchTasks, toggleDone, onDelete }) {
 						Add participant
 					</button>
 				</form>
+				<ShowParticipants participants={task.allParticipants} />
 				{/* <div>All participants: {task.allParticipants}</div> */}
 			</div>
 			<div className='buttons'>
