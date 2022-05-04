@@ -37,8 +37,11 @@ function Task({ task, fetchTasks, toggleDone, onDelete }) {
 						Add participant
 					</button>
 				</form>
-				<ShowParticipants participants={task.allParticipants} />
-				{/* <div>All participants: {task.allParticipants}</div> */}
+				<ShowParticipants
+					participants={task.allParticipants}
+					task={task}
+					fetchTasks={fetchTasks}
+				/>
 			</div>
 			<div className='buttons'>
 				<button
