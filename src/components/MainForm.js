@@ -9,7 +9,7 @@ import {
 	doc,
 	addDoc,
 	deleteDoc,
-	updateDoc,
+	updateDoc
 } from 'firebase/firestore';
 
 function MainForm({ user }) {
@@ -37,7 +37,7 @@ function MainForm({ user }) {
 			taskName: taskName,
 			taskTime: taskTime,
 			taskDone: taskDone,
-			submitTime: getDate(),
+			submitTime: getDate()
 		});
 		fetchTasks();
 		setTaskName('');
@@ -51,7 +51,7 @@ function MainForm({ user }) {
 	const toggleDone = async (id, taskDone) => {
 		const taskDoc = doc(db, 'tasks', id);
 		const newDone = {
-			taskDone: !taskDone,
+			taskDone: !taskDone
 		};
 		await updateDoc(taskDoc, newDone);
 		fetchTasks();
@@ -64,7 +64,7 @@ function MainForm({ user }) {
 	};
 
 	return (
-		<div className='Form-wrapper'>
+		<div className='form-wrapper'>
 			<form className='form' name='form' onSubmit={submitNewTask}>
 				<div className='enter-task-div'>
 					<input

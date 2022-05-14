@@ -8,11 +8,11 @@ function Login({
 	registerEmail,
 	registerPassword,
 	loginEmail,
-	loginPassword,
+	loginPassword
 }) {
 	return (
 		<div className='login-page'>
-			<div className='text'>
+			<div className='login-head-text'>
 				<h4>Welcome to the collaborative task manager.</h4>
 				<h4>Please register or log in to proceed.</h4>
 			</div>

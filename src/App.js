@@ -4,7 +4,7 @@ import {
 	createUserWithEmailAndPassword,
 	onAuthStateChanged,
 	signInWithEmailAndPassword,
-	signOut,
+	signOut
 } from 'firebase/auth';
 import Login from './components/Login';
 import Footer from './components/Footer';
@@ -60,7 +60,7 @@ function App() {
 	return (
 		<div className='App'>
 			{user?.email ? (
-				<div className='loggedin'>
+				<div className='logged-in'>
 					<Header logout={logout} />
 					<MainForm user={user} />
 					<Footer />

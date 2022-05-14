@@ -1,5 +1,9 @@
+/* ****Imports**** */
+
 @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
+/* ****General**** */
 
 :root {
 	--background-white: #f8f8f8;
@@ -16,14 +20,15 @@ body {
 }
 
 .App,
-.loggedin {
+.logged-in {
 	height: 100%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-/* Login page */
+/* ****Login page**** */
 
 .login-page {
 	background-color: var(--background-white);
@@ -56,10 +61,13 @@ body {
 	font-size: 15px;
 }
 
-.text {
+.login-head-text {
 	margin: 15px 0 0 0;
 	font-family: 'Roboto', sans-serif;
 	font-size: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 h4 {
@@ -90,23 +98,28 @@ p {
 	justify-content: space-between;
 }
 
-/* Task manager page */
+/* ****Task manager page**** */
 
-.Header-container {
-	width: 45%;
+/* header */
+
+.header-container {
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	margin: 0 0 30px 0;
 }
 
-.header {
+.header-main {
+	width: 40%;
 	font-family: 'Limelight', cursive;
 	font-size: 50px;
 	color: var(--foreground-blue);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	border-bottom: 3px solid var(--foreground-blue);
 }
 
@@ -115,7 +128,10 @@ p {
 	align-self: center;
 }
 
-.Form-wrapper {
+
+/* Main form */
+
+.form-wrapper {
 	width: 100%;
 	padding-bottom: 30px;
 }
@@ -152,6 +168,9 @@ p {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 }
+
+
+/* Published tasks */
 
 .tasks-container {
 	display: flex;
@@ -252,7 +271,10 @@ p {
 	font-weight: 300;
 }
 
-.Footer-container {
+
+/* ****Footer**** */
+
+.footer-container {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
@@ -265,7 +287,7 @@ p {
 	background-color: var(--foreground-blue);
 }
 
-.footer-para {
+.footer-text {
 	margin: 10px 0 10px 0;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
@@ -273,16 +295,16 @@ p {
 	color: #ffffff;
 }
 
-/* ******MOBILE****** */
+/* ****Responsive**** */
 
-@media only screen and (min-width: 300px) and (max-width: 950px) {
+@media only screen and (min-width: 830px) and (max-width: 1110px) {
 	.Header-container {
 		width: 55%;
 	}
 
-	.header {
+	.header-main {
 		font-size: 30px;
-		width: 100%;
+		width: 40%;
 	}
 
 	.form {
@@ -293,5 +315,12 @@ p {
 	.tasks-container {
 		flex-direction: column;
 		align-items: center;
+	}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 829px) {
+	.header-main {
+		font-size: 20px;
+		width: 40%;
 	}
 }

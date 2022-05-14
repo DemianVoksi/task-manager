@@ -4,8 +4,8 @@ function Header({ logout }) {
 	const headerText = 'Oops, I almost forgot';
 
 	return (
-		<div className='Header-container'>
-			<h1 className='header'>{headerText}</h1>
+		<div className='header-container'>
+			<h1 className='header-main'>{headerText}</h1>
 			<button className='form-button' id='logout-button' onClick={logout}>
 				Logout
 			</button>
