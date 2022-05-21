@@ -11,6 +11,19 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import MainForm from './components/MainForm';
 import './index.css';
+import Home from './components/Home';
+import { AuthProvider } from './utils/auth';
+
+/*
+1) DONE Header, MainForm i Footer moraju ići u novi component Home,
+a njihov div unutar kojeg se nalaze mora imati className='logged-in'
+2) DONE Login i Home componentsi idu u routes, Home kao '/', 
+Login kao '/login'
+3) DONE Napraviti utils folder i u njega staviti auth.js i RequireAuth.js
+4) U auth.js dodati state userLoggedIn koje se mijenja kada se login i logout 
+funkcije iz auth.js aktiviraju.
+5) Dodati te funkcije u login i logout funkcije u App.js
+*/
 
 function App() {
 	const [registerEmail, setRegisterEmail] = useState('');
@@ -59,6 +72,7 @@ function App() {
 
 	return (
 		<div className='App'>
+			{/* <Home logout={logout} user={user} /> */}
 			{user?.email ? (
 				<div className='logged-in'>
 					<Header logout={logout} />
