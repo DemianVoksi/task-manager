@@ -10,18 +10,12 @@ import Login from './components/Login';
 import './index.css';
 import Home from './components/Home';
 import { AuthProvider, useAuth } from './utils/auth';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import RequireAuth from './utils/RequireAuth';
 
 /*
-1) DONE Header, MainForm i Footer moraju ići u novi component Home,
-a njihov div unutar kojeg se nalaze mora imati className='logged-in'
-2) DONE Login i Home componentsi idu u routes, Home kao '/', 
-Login kao '/login'
-3) DONE Napraviti utils folder i u njega staviti auth.js i RequireAuth.js
-4) DONE U auth.js dodati state userLoggedIn koje se mijenja kada se login i logout 
-funkcije iz auth.js aktiviraju.
-5) DONE Dodati te funkcije u login i logout funkcije u App.js
+Prebaciti sve auth.function funkcije iz app.js u auth.js i 
+integrirati ih u register/login/logout funkcije tamo
 */
 
 function App() {
@@ -31,7 +25,6 @@ function App() {
 	const [loginPassword, setLoginPassword] = useState('');
 	const [user, setUser] = useState({});
 	const uAuth = useAuth();
-	const navigate = useNavigate();
 
 	useEffect(() => {
 		onAuthStateChanged(auth, (currentUser) => {
@@ -48,7 +41,6 @@ function App() {
 				registerPassword
 			);
 			await uAuth.loginAuth();
-			navigate('/');
 			console.log(user);
 		} catch (error) {
 			console.log(error);
@@ -65,7 +57,6 @@ function App() {
 				loginPassword
 			);
 			await uAuth.loginAuth();
-			navigate('/');
 			console.log(user);
 		} catch (error) {
 			console.log(error);
@@ -75,7 +66,6 @@ function App() {
 	const logout = async () => {
 		await signOut(auth);
 		await uAuth.logoutAuth();
-		navigate('/login');
 	};
 
 	return (
