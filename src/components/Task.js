@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
-import { db } from '../firebase-config';
+import { db } from '../utils/firebase-config';
 import ShowParticipants from './ShowParticipants';
 
 function Task({ task, fetchTasks, toggleDone, onDelete }) {
@@ -10,7 +10,7 @@ function Task({ task, fetchTasks, toggleDone, onDelete }) {
 		e.preventDefault();
 		const participantRef = doc(db, 'tasks', task.id);
 		await updateDoc(participantRef, {
-			allParticipants: arrayUnion(taskParticipant),
+			allParticipants: arrayUnion(taskParticipant)
 		});
 		fetchTasks();
 	};

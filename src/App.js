@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { auth } from './firebase-config';
+import { auth } from './utils/firebase-config';
 import {
 	createUserWithEmailAndPassword,
 	onAuthStateChanged,
@@ -9,16 +9,15 @@ import {
 import Login from './components/Login';
 import './index.css';
 import Home from './components/Home';
-import { AuthProvider, useAuth } from './utils/auth';
+import { AuthProvider, useAuth } from './utils/AuthProvider';
 import { Route, Routes } from 'react-router-dom';
 import RequireAuth from './utils/RequireAuth';
 
-/*
-Prebaciti sve auth.function funkcije iz app.js u auth.js i 
-integrirati ih u register/login/logout funkcije tamo
-*/
-
 function App() {
+	/*
+- Transfer all states and functions to AuthProvider
+- change values to value.values
+*/
 	const [registerEmail, setRegisterEmail] = useState('');
 	const [registerPassword, setRegisterPassword] = useState('');
 	const [loginEmail, setLoginEmail] = useState('');

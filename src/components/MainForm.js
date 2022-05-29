@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ListTasks from './ListTasks';
-import { db } from '../firebase-config';
+import { db } from '../utils/firebase-config';
 import {
 	collection,
 	query,

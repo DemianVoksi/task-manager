@@ -1,6 +1,6 @@
 import { arrayRemove, doc, updateDoc } from 'firebase/firestore';
 import React, { useState } from 'react';
-import { db } from '../firebase-config';
+import { db } from '../utils/firebase-config';
 
 function ShowParticipants({ participants, task, fetchTasks }) {
 	const [show, setShow] = useState(false);
@@ -12,7 +12,7 @@ function ShowParticipants({ participants, task, fetchTasks }) {
 	const removeParticipant = async (participant) => {
 		const participantRef = doc(db, 'tasks', task.id);
 		await updateDoc(participantRef, {
-			allParticipants: arrayRemove(participant),
+			allParticipants: arrayRemove(participant)
 		});
 		fetchTasks();
 	};
