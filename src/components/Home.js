@@ -3,11 +3,11 @@ import Footer from './Footer';
 import Header from './Header';
 import MainForm from './MainForm';
 
-function Home({ logout, user }) {
+function Home() {
 	return (
 		<div className='logged-in'>
-			<Header logout={logout} />
-			<MainForm user={user} />
+			<Header />
+			<MainForm />
 			<Footer />
 		</div>
 	);

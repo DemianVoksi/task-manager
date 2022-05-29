@@ -2,11 +2,11 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from './AuthProvider';
 
-// all should be fine here, if not, import AuthContext
-
 function RequireAuth({ children }) {
 	const auth = useAuth();
-	if (!auth.currentUser) {
+
+	if (!auth.user) {
+		console.log(auth.user);
 		return <Navigate to='/login' />;
 	}
 	return children;

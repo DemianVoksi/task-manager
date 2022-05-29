@@ -11,14 +11,17 @@ import {
 	deleteDoc,
 	updateDoc
 } from 'firebase/firestore';
+import { AuthContext } from '../utils/AuthProvider';
 
-function MainForm({ user }) {
+function MainForm() {
 	const [taskName, setTaskName] = useState('');
 	const [taskTime, setTaskTime] = useState('');
 	const [taskDone, setTaskDone] = useState(false);
 	const [allTasks, setAllTasks] = useState([]);
 	const tasksCollectionRef = collection(db, 'tasks');
 	const tasksOrdered = query(tasksCollectionRef, orderBy('submitTime'));
+	const value = React.useContext(AuthContext);
+	let user = value.user;
 
 	const fetchTasks = async () => {
 		const data = await getDocs(tasksOrdered);
