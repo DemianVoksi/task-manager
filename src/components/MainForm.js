@@ -12,6 +12,7 @@ import {
 	updateDoc
 } from 'firebase/firestore';
 import { AuthContext } from '../utils/AuthProvider';
+import './MainForm.css';
 
 function MainForm() {
 	const [taskName, setTaskName] = useState('');

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext, useAuth } from '../utils/AuthProvider';
+import './Login.css';
 
 function Login() {
 	const value = React.useContext(AuthContext);

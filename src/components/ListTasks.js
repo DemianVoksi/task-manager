@@ -1,4 +1,5 @@
 import Task from './Task';
+import './ListTasks.css';
 
 function ListTasks({ fetchTasks, allTasks, toggleDone, onDelete, user }) {
 	return (

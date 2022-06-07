@@ -1,0 +1,56 @@
+/* ****Imports**** */
+
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
+/* ****General**** */
+
+:root {
+	--background-white: #f8f8f8;
+	--foreground-blue: #00264d;
+}
+
+body {
+	margin: 0;
+	width: 100%;
+	background-color: var(--background-white);
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.App {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+@media only screen and (min-width: 830px) and (max-width: 1110px) {
+	.Header-container {
+		width: 55%;
+	}
+
+	.header-main {
+		font-size: 30px;
+		width: 40%;
+	}
+
+	.form {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.tasks-container {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 829px) {
+	.header-main {
+		font-size: 20px;
+		width: 40%;
+	}
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 import { db } from '../utils/firebase-config';
 import ShowParticipants from './ShowParticipants';
+import './Task.css';
 
 function Task({ task, fetchTasks, toggleDone, onDelete }) {
 	const [taskParticipant, setTaskParticipant] = useState('');

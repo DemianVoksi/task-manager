@@ -1,4 +1,5 @@
 import React from 'react';
+import './Footer.css';
 
 function Footer() {
 	let footerText = 'Created by Demian Vokši, 2022';

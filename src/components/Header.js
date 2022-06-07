@@ -1,6 +1,7 @@
 import React from 'react';
 import { AuthContext } from '../utils/AuthProvider';
 import { auth } from '../utils/firebase-config';
+import './Header.css';
 
 function Header() {
 	const headerText = 'Oops, I almost forgot';

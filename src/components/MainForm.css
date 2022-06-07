@@ -1,0 +1,51 @@
+.form-wrapper {
+	width: 100%;
+	padding-bottom: 30px;
+}
+
+.form {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.enter-task-div,
+.enter-time-div,
+.btn-div {
+	margin: 5px;
+}
+
+.enter-time-input,
+.enter-task-input,
+.btn-div {
+	height: 21px;
+}
+
+.enter-time-input,
+.enter-task-input {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+.btn {
+	background-color: var(--foreground-blue);
+	color: var(--background-white);
+	border: none;
+	padding: 5px 12px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+@media only screen and (min-width: 830px) and (max-width: 1110px) {
+	.form {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 829px) {
+	.form {
+		flex-direction: column;
+		align-items: center;
+	}
+}

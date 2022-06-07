@@ -1,0 +1,21 @@
+.tasks-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin: 20px 0 0 0;
+}
+
+@media only screen and (min-width: 830px) and (max-width: 1110px) {
+	.tasks-container {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 829px) {
+	.tasks-container {
+		flex-direction: column;
+		align-items: center;
+	}
+}
