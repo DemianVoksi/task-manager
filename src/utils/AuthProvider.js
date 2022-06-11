@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }) => {
 	const [loginEmail, setLoginEmail] = useState('');
 	const [loginPassword, setLoginPassword] = useState('');
 	const [user, setUser] = useState({});
+	const [errorMessage, setErrorMessage] = useState('');
 	const auth = getAuth();
 
 	useEffect(() => {
@@ -33,7 +34,7 @@ export const AuthProvider = ({ children }) => {
 			console.log(user.user.email);
 			return user;
 		} catch (error) {
-			console.log(error);
+			setErrorMessage(error);
 		}
 	};
 
@@ -47,7 +48,7 @@ export const AuthProvider = ({ children }) => {
 			console.log(user.user.email);
 			return user;
 		} catch (error) {
-			console.log(error);
+			setErrorMessage(error);
 		}
 	};
 
@@ -70,7 +71,8 @@ export const AuthProvider = ({ children }) => {
 				setUser,
 				register,
 				login,
-				logout
+				logout,
+				errorMessage
 			}}
 		>
 			{children}

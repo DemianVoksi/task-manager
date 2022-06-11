@@ -100,6 +100,7 @@ function Login() {
 							<button className='form-button'>Log in</button>
 						</div>
 					</form>
+					{/* {value.errorMessage && <p>{value.errorMessage}</p>} */}
 				</div>
 			</div>
 		</div>
