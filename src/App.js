@@ -5,6 +5,7 @@ import Home from './components/Home';
 import { AuthProvider } from './utils/AuthProvider';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import RequireAuth from './utils/RequireAuth';
+import Loading from './components/Loading';
 
 function App() {
 	return (
@@ -23,6 +24,7 @@ function App() {
 					}
 				></Route>
 				<Route path='/login' element={<Login />}></Route>
+				<Route path='/loading' element={<Loading />}></Route>
 			</Routes>
 		</AuthProvider>
 	);

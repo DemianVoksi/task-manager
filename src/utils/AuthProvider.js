@@ -15,12 +15,15 @@ export const AuthProvider = ({ children }) => {
 	const [loginEmail, setLoginEmail] = useState('');
 	const [loginPassword, setLoginPassword] = useState('');
 	const [user, setUser] = useState({});
+	const [isLoading, setIsLoading] = useState(true);
 	const [errorMessage, setErrorMessage] = useState('');
 	const auth = getAuth();
 
 	useEffect(() => {
 		onAuthStateChanged(auth, (user) => {
-			setUser(user);
+			// setUser(user);
+			// setIsLoading(false);
+			console.log(isLoading);
 		});
 	}, []);
 
@@ -54,6 +57,7 @@ export const AuthProvider = ({ children }) => {
 
 	const logout = async () => {
 		await signOut(auth);
+		// setIsLoading(true);
 	};
 
 	return (
