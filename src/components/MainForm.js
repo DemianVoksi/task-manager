@@ -37,6 +37,7 @@ function MainForm() {
 	const submitNewTask = async (e) => {
 		e.preventDefault();
 		await addDoc(tasksCollectionRef, {
+			allParticipants: [],
 			taskAuthor: user.email,
 			taskName: taskName,
 			taskTime: taskTime,
