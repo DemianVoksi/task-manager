@@ -15,14 +15,14 @@ export const AuthProvider = ({ children }) => {
 	const [loginEmail, setLoginEmail] = useState('');
 	const [loginPassword, setLoginPassword] = useState('');
 	const [user, setUser] = useState({});
-	const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(false);
 	const [errorMessage, setErrorMessage] = useState('');
 	const auth = getAuth();
 
 	useEffect(() => {
 		onAuthStateChanged(auth, (user) => {
 			setUser(user);
-			// setIsLoading(false);
+			setIsLoading(false);
 			console.log(isLoading);
 		});
 	}, []);
@@ -76,7 +76,9 @@ export const AuthProvider = ({ children }) => {
 				register,
 				login,
 				logout,
-				errorMessage
+				errorMessage,
+				isLoading,
+				setIsLoading,
 			}}
 		>
 			{children}

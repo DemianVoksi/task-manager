@@ -10,12 +10,14 @@ function Login() {
 
 	const handleRegister = async (e) => {
 		e.preventDefault();
+		value.setIsLoading(true);
 		await auth.register(value.registerEmail, value.registerPassword);
 		navigate('/');
 	};
 
 	const handleLogin = async (e) => {
 		e.preventDefault();
+		value.setIsLoading(true);
 		await auth.login(value.loginEmail, value.loginPassword);
 		navigate('/');
 	};
