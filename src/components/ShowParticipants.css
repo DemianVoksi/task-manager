@@ -1,3 +1,14 @@
+.participants-container {
+	max-height: 130px;
+	overflow-y: scroll;
+	scrollbar-width: none;
+	word-wrap: break-word;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
 .single-participant-wrapper {
 	display: flex;
 	flex-direction: row;

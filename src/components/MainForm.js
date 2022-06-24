@@ -14,6 +14,13 @@ import {
 import { AuthContext } from '../utils/AuthProvider';
 import './MainForm.css';
 
+// require fields
+// types to be email and password
+// set maximum and minimum length
+// reset values after submitting
+// edit css for the single task
+// edit css generally to make it more responsive
+
 function MainForm() {
 	const [taskName, setTaskName] = useState('');
 	const [taskTime, setTaskTime] = useState('');

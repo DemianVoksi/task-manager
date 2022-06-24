@@ -13,6 +13,7 @@ function Task({ task, fetchTasks, toggleDone, onDelete }) {
 		await updateDoc(participantRef, {
 			allParticipants: arrayUnion(taskParticipant)
 		});
+		setTaskParticipant('');
 		fetchTasks();
 	};
 

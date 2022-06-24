@@ -22,7 +22,7 @@ function ShowParticipants({ participants, task, fetchTasks }) {
 		<div>
 			<button onClick={toggleShow}>Show participants</button>
 			{participants && show ? (
-				<div>
+				<div className='participants-container'>
 					{participants.map((participant, index) => (
 						<div key={index} className='single-participant-wrapper'>
 							<div className='single-participant-address'>{participant}</div>

@@ -3,6 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext, useAuth } from '../utils/AuthProvider';
 import './Login.css';
 
+// require fields
+// types to be email and password
+// set maximum and minimum length
+// reset values after submitting
+
 function Login() {
 	const value = React.useContext(AuthContext);
 	const auth = useAuth();
@@ -42,6 +47,9 @@ function Login() {
 									type='email'
 									name='register-email'
 									placeholder='Enter email...'
+									minLength={7}
+									maxLength={50}
+									required
 									value={value.registerEmail}
 									onChange={(e) => value.setRegisterEmail(e.target.value)}
 								/>
@@ -82,6 +90,9 @@ function Login() {
 									type='email'
 									name='login-email'
 									placeholder='Enter email...'
+									minLength={7}
+									maxLength={50}
+									required
 									value={value.loginEmail}
 									onChange={(e) => value.setLoginEmail(e.target.value)}
 								/>
