@@ -57,7 +57,6 @@ export const AuthProvider = ({ children }) => {
 
 	const logout = async () => {
 		await signOut(auth);
-		// setIsLoading(true);
 	};
 
 	return (
@@ -78,7 +77,7 @@ export const AuthProvider = ({ children }) => {
 				logout,
 				errorMessage,
 				isLoading,
-				setIsLoading,
+				setIsLoading
 			}}
 		>
 			{children}

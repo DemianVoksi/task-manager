@@ -26,9 +26,12 @@ function Task({ task, fetchTasks, toggleDone, onDelete }) {
 			<div className='participant'>
 				<form className='participant-form' onSubmit={addTaskParticipant}>
 					<input
-						type='text'
+						type='email'
 						name='addParticipant'
 						className='participant-input'
+						minLength={7}
+						maxLength={100}
+						required
 						value={taskParticipant}
 						onChange={(e) => {
 							setTaskParticipant(e.target.value);

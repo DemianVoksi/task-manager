@@ -3,11 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext, useAuth } from '../utils/AuthProvider';
 import './Login.css';
 
-// require fields
-// types to be email and password
-// set maximum and minimum length
-// reset values after submitting
-
 function Login() {
 	const value = React.useContext(AuthContext);
 	const auth = useAuth();
@@ -15,14 +10,14 @@ function Login() {
 
 	const handleRegister = async (e) => {
 		e.preventDefault();
-		value.setIsLoading(true);
+		await value.setIsLoading(true);
 		await auth.register(value.registerEmail, value.registerPassword);
 		navigate('/');
 	};
 
 	const handleLogin = async (e) => {
 		e.preventDefault();
-		value.setIsLoading(true);
+		await value.setIsLoading(true);
 		await auth.login(value.loginEmail, value.loginPassword);
 		navigate('/');
 	};
@@ -70,9 +65,11 @@ function Login() {
 									onChange={(e) => value.setRegisterPassword(e.target.value)}
 								/>
 							</div>
-							<button className='form-button' type='submit'>
-								Register
-							</button>
+							<div className='button-container'>
+								<button className='form-button' type='submit'>
+									Register
+								</button>
+							</div>
 						</div>
 					</form>
 				</div>
@@ -110,10 +107,11 @@ function Login() {
 									onChange={(e) => value.setLoginPassword(e.target.value)}
 								/>
 							</div>
-							<button className='form-button'>Log in</button>
+							<div className='button-container'>
+								<button className='form-button'>Log in</button>
+							</div>
 						</div>
 					</form>
-					{/* {value.errorMessage && <p>{value.errorMessage}</p>} */}
 				</div>
 			</div>
 		</div>

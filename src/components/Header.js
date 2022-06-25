@@ -9,6 +9,7 @@ function Header() {
 
 	const handleLogout = async () => {
 		await value.logout(auth);
+		await value.setIsLoading(true);
 		value.setRegisterEmail('');
 		value.setRegisterPassword('');
 		value.setLoginEmail('');

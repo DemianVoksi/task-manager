@@ -1,7 +1,16 @@
 .logged-in {
 	height: 100%;
 	width: 100%;
+	margin: 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 844px) {
+	#root {
+		width: 100%;
+		margin: 0;
+	}
+	
 }

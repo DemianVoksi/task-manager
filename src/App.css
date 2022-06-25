@@ -27,7 +27,7 @@ body {
 	align-items: center;
 }
 
-@media only screen and (min-width: 830px) and (max-width: 1110px) {
+/* @media only screen and (min-width: 845px) and (max-width: 1110px) {
 	.Header-container {
 		width: 55%;
 	}
@@ -46,11 +46,11 @@ body {
 		flex-direction: column;
 		align-items: center;
 	}
-}
+} */
 
-@media only screen and (min-width: 320px) and (max-width: 829px) {
+/* @media only screen and (min-width: 320px) and (max-width: 844px) {
 	.header-main {
 		font-size: 20px;
 		width: 40%;
 	}
-}
+} */

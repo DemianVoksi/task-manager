@@ -10,8 +10,10 @@
 }
 
 .single-participant-wrapper {
+	width: 95%;
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
 	margin: 5px 0 5px 0;
 }
 
@@ -27,4 +29,11 @@
 	padding: 1px 7px;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 845px) {
+
+	.participants-container {
+		max-height: 80%;
+	}
 }
