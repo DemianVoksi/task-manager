@@ -9,6 +9,7 @@
 	box-shadow: inset 0 0 0 3000px rgba(255, 255, 255, 0.4);
 	display: flex;
 	flex-direction: column;
+	overflow: auto;
 }
 
 .text-info {
@@ -68,6 +69,7 @@
 
 .participant {
 	align-self: center;
+	overflow: auto;
 }
 
 .participant-form {
@@ -82,7 +84,8 @@
 
 	.task-div {
 		width: 340px;
-		height: 600px;
+		height: 15em;
+		overflow: auto;
 	}
 
 }

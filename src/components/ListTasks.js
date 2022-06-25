@@ -11,7 +11,7 @@ function ListTasks({ fetchTasks, allTasks, toggleDone, onDelete, user }) {
 						task.allParticipants.includes(user.email)
 				)
 				.map((task) => (
-					<div key={task.id}>
+					<div key={task.id} className='task-div-container'>
 						<Task
 							task={task}
 							fetchTasks={fetchTasks}
