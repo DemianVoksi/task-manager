@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
 	const [loginPassword, setLoginPassword] = useState('');
 	const [user, setUser] = useState({});
 	const [isLoading, setIsLoading] = useState(false);
-	const [errorMessage, setErrorMessage] = useState('');
+	const [errorMessage, setErrorMessage] = useState(null);
 	const auth = getAuth();
 
 	useEffect(() => {
@@ -43,6 +43,7 @@ export const AuthProvider = ({ children }) => {
 
 	const login = async (loginEmail, loginPassword) => {
 		try {
+			setErrorMessage(null);
 			const user = await signInWithEmailAndPassword(
 				auth,
 				loginEmail,
