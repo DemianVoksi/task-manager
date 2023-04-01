@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import ListTasks from './ListTasks';
-import { db } from '../utils/firebase-config';
 import {
-	collection,
-	query,
-	orderBy,
-	getDocs,
-	doc,
 	addDoc,
+	collection,
 	deleteDoc,
+	doc,
+	getDocs,
+	orderBy,
+	query,
 	updateDoc
 } from 'firebase/firestore';
+import React, { useEffect, useState } from 'react';
 import { AuthContext } from '../utils/AuthProvider';
+import { db } from '../utils/firebase-config';
+import ListTasks from './ListTasks';
 import './MainForm.css';
 
 // require fields
@@ -33,6 +33,7 @@ function MainForm() {
 
 	const fetchTasks = async () => {
 		const data = await getDocs(tasksOrdered);
+		value.setIsLoading(false);
 		setAllTasks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
 	};
 

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
+import React, { useState } from 'react';
 import { db } from '../utils/firebase-config';
 import ShowParticipants from './ShowParticipants';
 import './Task.css';
@@ -58,7 +58,7 @@ function Task({ task, fetchTasks, toggleDone, onDelete }) {
 							: { backgroundColor: '#00264d' }
 					}
 				>
-					done
+					{task.taskDone ? 'done' : 'not done'}
 				</button>
 				<button className='delete-button' onClick={() => onDelete(task.id)}>
 					delete
