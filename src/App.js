@@ -1,17 +1,25 @@
 import React from 'react';
-import Login from './components/Login';
+// import Login from './components/Login';
 import './App.css';
-import Home from './components/Home';
+// import Home from './components/Home';
+import { Route, Routes } from 'react-router-dom';
+import { Login } from './components/Login';
+import { LoginAndRegister } from './components/LoginAndRegister';
+import { Register } from './components/Register';
 import { AuthProvider } from './utils/AuthProvider';
-import { Route, Routes, Navigate } from 'react-router-dom';
-import RequireAuth from './utils/RequireAuth';
-import Loading from './components/Loading';
+
+// import { Route, Routes, Navigate } from 'react-router-dom';
+// import RequireAuth from './utils/RequireAuth';
+// import Loading from './components/Loading';
 
 function App() {
 	return (
 		<AuthProvider>
 			<Routes>
-				<Route
+				<Route path='/login-register' element={<LoginAndRegister />} />
+				<Route path='/login' element={<Login />} />
+				<Route path='/register' element={<Register />} />
+				{/* <Route
 					path='/task-manager'
 					element={<Navigate replace to='/login' />}
 				/>
@@ -24,7 +32,7 @@ function App() {
 					}
 				></Route>
 				<Route path='/login' element={<Login />}></Route>
-				<Route path='/loading' element={<Loading />}></Route>
+				<Route path='/loading' element={<Loading />}></Route> */}
 			</Routes>
 		</AuthProvider>
 	);
