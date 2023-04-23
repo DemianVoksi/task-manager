@@ -1,0 +1,72 @@
+.login-form-wrapper {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-form-all {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.register-title {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: 1em;
+	padding-bottom: 1em;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 22px;
+	color: var(--foreground-blue);
+}
+
+.form-email-wrapper {
+	width: 100%;
+	margin: 5px 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.form-password-wrapper {
+	width: 100%;
+	margin: 5px 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.form-label-email, .form-label-password {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 18px;
+}
+
+.button-container {
+	width: 100%;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.form-button {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+  border: none;
+	padding: 5px 8px;
+	color: var(--background-white);
+	background-color: var(--foreground-blue);
+}
+
+
+
